@@ -1,20 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using FlowChart.Models;
 using FlowChart.Controller;
-using System.IO;
-using FlowChart.Utility;
 using FlowChart.Entities;
-using FlowChart.Tools;
-using System.Drawing;
 using FlowChart.Persistance;
-using FlowChart.Views;
 using FlowChart.Views.Default;
 using FlowChart.Views.Grey;
 
@@ -42,8 +32,7 @@ namespace FlowChart
             undoGrid.CellContentClick += new DataGridViewCellEventHandler(undoGrid_CellContentClick);
             lstAllObjects.SelectedIndexChanged += new EventHandler(lstAllObjects_SelectedIndexChanged);
 
-            this.flowChartPage1.Width = 601;
-            this.flowChartPage1.Height = 851;
+            potraitToolStripMenuItem_Click(this, null);
         }
         
         void lstAllObjects_SelectedIndexChanged(object sender, EventArgs e)
@@ -58,7 +47,7 @@ namespace FlowChart
         {
             if (e.ColumnIndex == 1 && e.RowIndex >= 0 && e.RowIndex < undoGrid.Rows.Count)
             {
-                FlowChartContainer fc = undoGrid.Rows[e.RowIndex].DataBoundItem as FlowChartContainer;
+                var fc = undoGrid.Rows[e.RowIndex].DataBoundItem as FlowChartContainer;
                 if (fc != null)
                 {
                     controller.Load(fc);
@@ -70,8 +59,11 @@ namespace FlowChart
         {
             lstAllObjects.Items.Clear();
             
-            controller.Model.Items.ForEach(x=>{
-                ListViewItem lv = new ListViewItem(x.Text) { Tag = x, ImageIndex =x.ImageIndex };
+            controller.Model.Items.ForEach(x => {
+                var lv = new ListViewItem(x.Text) { 
+                    Tag = x, 
+                    ImageIndex = x.ImageIndex 
+                };
                 lstAllObjects.Items.Add(lv);
             });
             
@@ -239,6 +231,18 @@ namespace FlowChart
         private void ddlTheme_SelectedIndexChanged(object sender, EventArgs e)
         {
             controller.ViewFactory = new GreyViewFactory();
-        }               
+        }
+
+        private void potraitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.flowChartPage1.Width = 601;
+            this.flowChartPage1.Height = 851;
+        }
+
+        private void landscapeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.flowChartPage1.Width = 851;
+            this.flowChartPage1.Height = 601;
+        }
     }
 }

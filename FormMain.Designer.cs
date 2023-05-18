@@ -50,6 +50,8 @@
             this.btnZoomIn = new System.Windows.Forms.ToolStripButton();
             this.btnZoomOut = new System.Windows.Forms.ToolStripButton();
             this.btnFit = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.ddlTheme = new System.Windows.Forms.ToolStripComboBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
@@ -65,8 +67,9 @@
             this.Undo = new System.Windows.Forms.DataGridViewButtonColumn();
             this.flowChartContainerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.saveFileDialog2 = new System.Windows.Forms.SaveFileDialog();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.ddlTheme = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.potraitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.landscapeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -225,7 +228,8 @@
             this.btnZoomOut,
             this.btnFit,
             this.toolStripSeparator3,
-            this.ddlTheme});
+            this.ddlTheme,
+            this.toolStripDropDownButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
@@ -289,6 +293,20 @@
             this.btnFit.Text = "Fit";
             this.btnFit.Click += new System.EventHandler(this.btnFit_Click);
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // ddlTheme
+            // 
+            this.ddlTheme.Items.AddRange(new object[] {
+            "Default",
+            "Grey"});
+            this.ddlTheme.Name = "ddlTheme";
+            this.ddlTheme.Size = new System.Drawing.Size(121, 25);
+            this.ddlTheme.SelectedIndexChanged += new System.EventHandler(this.ddlTheme_SelectedIndexChanged);
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -349,6 +367,7 @@
             this.columnHeader1});
             this.lstAllObjects.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lstAllObjects.GridLines = true;
+            this.lstAllObjects.HideSelection = false;
             this.lstAllObjects.Location = new System.Drawing.Point(0, 0);
             this.lstAllObjects.Margin = new System.Windows.Forms.Padding(2);
             this.lstAllObjects.Name = "lstAllObjects";
@@ -473,19 +492,31 @@
     "";
             this.saveFileDialog2.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog2_FileOk);
             // 
-            // toolStripSeparator3
+            // toolStripDropDownButton1
             // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.potraitToolStripMenuItem,
+            this.landscapeToolStripMenuItem});
+            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(29, 22);
+            this.toolStripDropDownButton1.Text = "toolStripDropDownButton1";
             // 
-            // ddlTheme
+            // potraitToolStripMenuItem
             // 
-            this.ddlTheme.Items.AddRange(new object[] {
-            "Default",
-            "Grey"});
-            this.ddlTheme.Name = "ddlTheme";
-            this.ddlTheme.Size = new System.Drawing.Size(121, 25);
-            this.ddlTheme.SelectedIndexChanged += new System.EventHandler(this.ddlTheme_SelectedIndexChanged);
+            this.potraitToolStripMenuItem.Name = "potraitToolStripMenuItem";
+            this.potraitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.potraitToolStripMenuItem.Text = "Potrait";
+            this.potraitToolStripMenuItem.Click += new System.EventHandler(this.potraitToolStripMenuItem_Click);
+            // 
+            // landscapeToolStripMenuItem
+            // 
+            this.landscapeToolStripMenuItem.Name = "landscapeToolStripMenuItem";
+            this.landscapeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.landscapeToolStripMenuItem.Text = "Landscape";
+            this.landscapeToolStripMenuItem.Click += new System.EventHandler(this.landscapeToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -562,7 +593,9 @@
         private System.Windows.Forms.ToolStripButton btnFit;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripComboBox ddlTheme;
-
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripMenuItem potraitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem landscapeToolStripMenuItem;
     }
 }
 
